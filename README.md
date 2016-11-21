@@ -23,7 +23,7 @@
   <ul>
     <li>Have spaceship move</li>
     <li>Have trump move</li>
-    <li>Have a laser shoot lasers</li>
+    <li>Have a spaceship shoot lasers</li>
     <li>Have my collisions working</li>
     <li>Have trump explode</li>
   </ul>

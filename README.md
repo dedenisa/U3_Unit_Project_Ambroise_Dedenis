@@ -21,11 +21,11 @@
   <h3>Milestone #2: November 30th, 2016 </h3>
   <strong>Goal:</strong> You should have a small prototype by the end of this milestone.
   <ul>
-    <li>Task</li>
-    <li>Task</li>
-    <li>Task</li>
-    <li>Task</li>
-    <li>Task</li>
+    <li>Have spaceship move</li>
+    <li>Have trump move</li>
+    <li>Have a laser shoot lasers</li>
+    <li>Have my collisions working</li>
+    <li>Have trump explode</li>
   </ul>
 </p>
  

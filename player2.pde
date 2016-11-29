@@ -12,6 +12,26 @@ class Player2
   }
   public void Draw()
   {
+    if (keyPressed)
+    {
+      println(keyCode);
+      if (key == 'a')
+      {
+        _a = true;
+      }
+      if (key == 'd')
+      {
+        _d = true;
+      }
+    }
+    if (_a == true)
+    {
+      _x = _x - 5;
+    }
+    if (_d == true)
+    {
+      _x = _x + 5;
+    }
     imageMode(CENTER);
     image(spaceshipImg, _x, _y, 100, 100);
   }
@@ -19,11 +39,22 @@ class Player2
   {
     if (key == 'a')
     {
-      _x = _x - 5;
+      _a = false;
     }
     if (key == 'd')
     {
-      _x = _x + 5;
+      _d = false;
+    }
+  }
+  public void keyreleased()
+  {
+    if (key == 'a')
+    {
+      _a = false;
+    }
+    if (key == 'd')
+    {
+      _d = false;
     }
   }
 }

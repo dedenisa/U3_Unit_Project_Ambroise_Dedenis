@@ -3,8 +3,9 @@ PImage spaceshipImg;
 PImage laserImg;
 Player2 spaceship;
 Player1 trump;
-Lasers laser;
-ArrayList<Lasers> lasers;
+Laser laser;
+ArrayList<Laser> lasers;
+boolean _left, _right, _shoot, _a, _d;
 
 void setup()
 {
@@ -15,8 +16,8 @@ void setup()
   spaceshipImg = loadImage("spaceship.png");
   spaceship = new Player2(spaceshipImg, 100, height - 50);
   laserImg = loadImage ("lasers.png");
-  laser = new Lasers(laserImg, -30, -30);
-  lasers = new ArrayList<Lasers>();
+  laser = new Laser(laserImg, -30, -30);
+  lasers = new ArrayList<Laser>();
 }
 
 void draw()
@@ -37,7 +38,8 @@ void keyReleased()
 {
   if (key == ' ')
   {
-    Lasers temp = new Lasers(laserImg, spaceship._x, spaceship._y);
+    Laser temp = new Laser(laserImg, spaceship._x, spaceship._y);
     lasers.add(temp);
+    _shoot = false;
   }
 }

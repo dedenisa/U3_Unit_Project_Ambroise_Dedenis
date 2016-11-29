@@ -12,6 +12,26 @@ class Player1
   }
   public void Draw()
   {
+    if (keyPressed)
+    {
+      println(keyCode);
+      if (keyCode == LEFT)
+      {
+        _left = true;
+      }
+      if (key == 'd')
+      {
+        _right = true;
+      }
+    }
+    if (_left == true)
+    {
+      _x = _x - 5;
+    }
+    if (_right == true)
+    {
+      _x = _x + 5;
+    }
     imageMode(CENTER);
     image(trumpImg, _x, _y, 100, 100);
   }
@@ -21,11 +41,25 @@ class Player1
     {
       if (keyCode == LEFT)
       {
-        _x = _x - 5;
+        _left = false;
       }
       if (keyCode == RIGHT)
       {
-        _x = _x + 5;
+        _right = false;
+      }
+    }
+  }
+  public void keyreleased()
+  {
+    if (key == CODED)
+    {
+      if (keyCode == LEFT)
+      {
+        _left = false;
+      }
+      if (keyCode == RIGHT)
+      {
+        _right = false;
       }
     }
   }

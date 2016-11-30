@@ -1,7 +1,8 @@
 <h1>Unit 3 Final Project: Trump vs Alien</h1>
  
-<strong>Interaction</strong>: 
-<strong>Description</strong>: 
+<strong>Interaction</strong>: The interaction that I will be using for this project is "MAKEY MAKEY". I got my idea from hearing everyone whining about having Donald Trump as the American President. So I wanted to involve him as much as I could so I made a game with him and aliens fighting each other.
+
+<strong>Description</strong>: My game, involves 2 players which one player is Donald Trump and the other player is a Spaceship. Both can shoot missils. Donald Trump shoots money and the spaceship shoots lasers. In my final project, you will have 3 lives for each player and the first player with 0 life will explode. And then it will bring everyone back to the home screen.
 
 <h2>Timeline</h2>
  
@@ -24,8 +25,8 @@
     <li>Have spaceship move</li>
     <li>Have trump move</li>
     <li>Have a spaceship shoot lasers</li>
-    <li>Have my collisions working</li>
-    <li>Have trump explode</li>
+    <li>Have my smooth input keyboard done</li>
+    <li>Having trump being able to throw money</li>
   </ul>
 </p>
  
@@ -34,11 +35,11 @@
   Milestone #3: December 5th, 2015 (For C block) </h3>
   <strong>Goal:</strong> You should have iterated and improved on your prototype by the end of this milestone.
   <ul>
-    <li>Task</li>
-    <li>Task</li>
-    <li>Task</li>
-    <li>Task</li>
-    <li>Task</li>
+    <li>Make Lives for the Spaceship</li>
+    <li>Make Lives for the Trump</li>
+    <li>Add a collision for Trumop</li>
+    <li>Add a collision for the spaceship</li>
+    <li>Add a home screen</li>
   </ul>
 </div>
  

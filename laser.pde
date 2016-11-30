@@ -12,20 +12,8 @@ class Laser
   }
   public void Draw()
   {
-    if (keyPressed)
-    {
-      println(keyCode);
-      if (key == ' ')
-      {
-        _shoot = true;
-        if (_shoot == true)
-        {
-          _y--;
-        }
-        imageMode(CENTER);
-        image(laserImg, _x, _y, 50, 50);
-      }
-    }
+    imageMode(CENTER);
+    image(laserImg, _x, _y, 50, 50);
   }
   public void shootLaser()
   {
@@ -34,6 +22,6 @@ class Laser
   }
   void Update()
   {
-    _y = _y - 25;
+    _y = _y - 10;
   }
 }

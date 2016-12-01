@@ -3,6 +3,7 @@ class Player1
   PImage _trump;
   float _x;
   float _y;
+  int _lives = 3;
 
   Player1(PImage trump, float x, float y)
   {

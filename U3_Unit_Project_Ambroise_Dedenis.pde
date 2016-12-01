@@ -42,6 +42,7 @@ void draw()
     moneys.get(i).Update();
     moneys.get(i).Draw();
   }
+  checkcollision();
 }
 
 void keyPressed()
@@ -120,4 +121,28 @@ void keyReleased()
 
 void checkcollision()
 {
+
+  for (int i=moneys.size()-1; i > 0; i--)
+  {
+    if (spaceship._x < moneys.get(i)._x + 50 &&
+      spaceship._x + 100 > moneys.get(i)._x &&
+      spaceship._y < moneys.get(i)._y + 50 &&
+      100 + spaceship._y > moneys.get(i)._y)
+    {
+      moneys.remove(i);
+      spaceship._lives -= 1;
+    }
+  }
+  
+  for (int i=lasers.size()-1; i > 0; i--)
+  {
+    if (trump._x < lasers.get(i)._x + 50 &&
+      trump._x + 100 > lasers.get(i)._x &&
+      trump._y < lasers.get(i)._y + 50 &&
+      100 + trump._y > lasers.get(i)._y)
+    {
+      lasers.remove(i);
+      trump._lives -= 1;
+    }
+  }
 }

@@ -3,6 +3,7 @@ class Player2
   PImage _spaceship;
   float _x;
   float _y; 
+  int _lives = 3;
 
   Player2(PImage spaceship, float x, float y)
   {

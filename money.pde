@@ -22,6 +22,6 @@ class Money
   }
   void Update()
   {
-    _y = _y + 10;
+    _y = _y + 5;
   }
 }

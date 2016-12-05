@@ -22,6 +22,6 @@ class Laser
   }
   void Update()
   {
-    _y = _y - 5;
+    _y = _y - 10;
   }
 }

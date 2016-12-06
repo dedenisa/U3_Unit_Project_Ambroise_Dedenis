@@ -20,11 +20,11 @@ class Player1
   {
     if (_left)
     {
-      _x = _x - 5;
+      _x = _x - 7.5;
     }
     if (_right)
     {
-      _x = _x + 5;
+      _x = _x + 7.5;
     }
   }
 }

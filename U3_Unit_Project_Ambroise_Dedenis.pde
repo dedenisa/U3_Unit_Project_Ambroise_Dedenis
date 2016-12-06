@@ -8,10 +8,13 @@ Player2 spaceship;
 Player1 trump;
 Laser laser;
 Money money;
+Explosion explosion;
 ArrayList<Laser> lasers;
 ArrayList<Money> moneys;
 boolean _left, _right, _shootup, _a, _d, _shootdown;
 boolean _trumpfire, _spaceshipfire;
+int [] ellipseX = new int [10];
+int [] ellipseY = new int [10];
 
 void setup()
 {
@@ -29,6 +32,11 @@ void setup()
   time = millis();
   _trumpfire = true;
   _spaceshipfire = true;
+  for (int i = 0; i < 10; i++)
+  {
+    ellipseX [i] = (int) random (0, width - 50);
+    ellipseY [i] = (int) random (0, height - 50);
+  }
 }
 
 void draw()
@@ -65,12 +73,12 @@ void draw()
 
   if (trump._lives < 1)
   {
-    background(255, 0, 0);
+    explosion.Draw();
   }
 
   if (spaceship._lives < 1)
   {
-    background(255, 0, 255);
+    explosion.Draw();
   }
 }
 

@@ -13,8 +13,20 @@ class Player2
   }
   public void Draw()
   {
-    imageMode(CENTER);
-    image(spaceshipImg, _x, _y, 100, 100);
+    if (spaceship._x > width)
+    {
+      spaceship._x = 1;
+    }
+
+    if (spaceship._x < 0)
+    {
+      spaceship._x = width;
+    } 
+    if (_gameoverspaceship == false)
+    {
+      imageMode(CENTER);
+      image(spaceshipImg, _x, _y, 100, 100);
+    }
   }
   void Update()
   {

@@ -13,8 +13,21 @@ class Player1
   }
   public void Draw()
   {
-    imageMode(CENTER);
-    image(trumpImg, _x, _y, 100, 100);
+    if (trump._x > width)
+    {
+      trump._x = 1;
+    }
+
+    if (trump._x < 0)
+    {
+      trump._x = width;
+    }
+
+    if (_gameovertrump == false)
+    {
+      imageMode(CENTER);
+      image(trumpImg, _x, _y, 100, 100);
+    }
   }
   void Update()
   {

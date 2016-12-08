@@ -1,142 +1,167 @@
+/*
+
+ */
+
 int time;
 int wait = 1000;
+
 PImage trumpImg;
 PImage spaceshipImg;
 PImage laserImg;
 PImage moneyImg;
+
 Player2 spaceship;
 Player1 trump;
 Laser laser;
 Money money;
-Explosion explosion;
+
+Explosion explosionT;
+Explosion explosionS;
+
+
 ArrayList<Laser> lasers;
 ArrayList<Money> moneys;
+
 boolean _left, _right, _shootup, _a, _d, _shootdown;
+boolean _gameovertrump, _gameoverspaceship;
 boolean _trumpfire, _spaceshipfire;
-int [] ellipseX = new int [10];
-int [] ellipseY = new int [10];
 
 void setup()
 {
   fullScreen();
+
   background(0);
+
   trumpImg = loadImage("trump.png");
   trump = new Player1(trumpImg, width-100, 0 + 50);
+  _trumpfire = true;
+
   spaceshipImg = loadImage("spaceship.png");
   spaceship = new Player2(spaceshipImg, 100, height - 50);
+  _spaceshipfire = true;
+
   laserImg = loadImage ("lasers.png");
   laser = new Laser(laserImg, -30, -30);
   lasers = new ArrayList<Laser>();
+
   moneyImg = loadImage  ("money.png");
   moneys = new ArrayList<Money>();
+
   time = millis();
-  _trumpfire = true;
-  _spaceshipfire = true;
-  for (int i = 0; i < 10; i++)
-  {
-    ellipseX [i] = (int) random (0, width - 50);
-    ellipseY [i] = (int) random (0, height - 50);
-  }
 }
 
 void draw()
 {
   background(0);
+
   trump.Draw();
+  trump.Update();
+
   spaceship.Draw();
   spaceship.Update();
-  trump.Update();
+
   for (int i=0; i <lasers.size(); i++)
   {
     lasers.get(i).Update();
     lasers.get(i).Draw();
   }
+
   for (int i=0; i<moneys.size(); i++)
   {
     moneys.get(i).Update();
     moneys.get(i).Draw();
   }
+
   checkcollision();
 
   if (millis() - time >= wait)
   {
-    println ("tick");
+    println ("shoot");
     time = millis();
     _trumpfire = true;
     _spaceshipfire = true;
   }
-  textSize(20);
-  text("Trump lives =" + trump._lives, 100, 100);
 
-  textSize(20);
-  text("Spaceship lives =" + spaceship._lives, width - 250, height - 125);
+  if (_gameovertrump == false)
+  {
+    textSize(20);
+    text("Trump lives =" + trump._lives, 100, 100);
+  }
+
+  if (_gameoverspaceship == false)
+  {
+    textSize(20);
+    text("Spaceship lives =" + spaceship._lives, width - 250, height - 125);
+  }
 
   if (trump._lives < 1)
   {
-    explosion.Draw();
+    explosionT = new Explosion(trump._x, trump._y);
+
+    explosionT.Draw();
+
+    _gameovertrump = true;
   }
 
   if (spaceship._lives < 1)
   {
-    explosion.Draw();
+    _gameoverspaceship = true;
+    explosionS = new Explosion(spaceship._x, spaceship._y);
+
+    explosionS.Draw();
   }
 }
 
 void keyPressed()
 {
-  if (key == CODED)
+  if (_gameoverspaceship == false && _gameovertrump == false)
   {
-    if (keyCode == LEFT)
+    if (key == CODED)
     {
-      _left = true;
+      if (keyCode == LEFT)
+      {
+        _left = true;
+      }
+      if (keyCode == RIGHT)
+      {
+        _right = true;
+      }
+      if (_trumpfire == true)
+      {
+        if (keyCode == DOWN)
+        {
+          Money temp = new Money(moneyImg, trump._x, trump._y);
+          moneys.add(temp);
+          _shootdown = true;
+          _trumpfire = false;
+        }
+      }
     }
-    if (keyCode == RIGHT)
+    if (key == 'a')
     {
-      _right = true;
+      _a = true;
     }
-    if (keyCode == DOWN)
+    if (key == 'd')
     {
-      _shootdown = true;
+      _d = true;
     }
-  }
-  if (key == 'a')
-  {
-    _a = true;
-  }
-  if (key == 'd')
-  {
-    _d = true;
-  }
-  if (key == 's')
-  {
-    _shootup = true;
+    if (_spaceshipfire == true)
+    {
+      if (key == 's')
+      {
+        Laser temp = new Laser(laserImg, spaceship._x, spaceship._y);
+        lasers.add(temp);
+        _shootup = true;
+        _spaceshipfire = false;
+      }
+    }
   }
 }
 
 void keyReleased()
 {
-  if (_spaceshipfire == true)
+  if (key == CODED)  
   {
-    if (key == 's')
-    {
-      Laser temp = new Laser(laserImg, spaceship._x, spaceship._y);
-      lasers.add(temp);
-      _shootup = true;
-      _spaceshipfire = false;
-    }
-  }
-  if (key == CODED)
-  {
-    if (_trumpfire == true)
-    {
-      if (keyCode == DOWN)
-      {
-        Money temp = new Money(moneyImg, trump._x, trump._y);
-        moneys.add(temp);
-        _shootdown = true;
-        _trumpfire = false;
-      }
-    }
     if (keyCode == LEFT)
     {
       _left = false;
@@ -144,10 +169,6 @@ void keyReleased()
     if (keyCode == RIGHT)
     {
       _right = false;
-    }
-    if (keyCode == DOWN)
-    {
-      _shootdown = false;
     }
   }
   if (key == 'a')
@@ -157,10 +178,6 @@ void keyReleased()
   if (key == 'd')
   {
     _d = false;
-  }
-  if (key == ' ')
-  {
-    _shootup = false;
   }
 }
 

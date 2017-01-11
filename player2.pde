@@ -22,6 +22,7 @@ class Player2
     {
       spaceship._x = width;
     } 
+
     if (_gameoverspaceship == false)
     {
       imageMode(CENTER);

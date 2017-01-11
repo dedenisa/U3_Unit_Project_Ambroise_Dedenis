@@ -1,5 +1,8 @@
 /*
-
+I was inspired to make this project due to the election of Donald Trump. So I wanted to make something interacting with Doanld Trump involved. So I came up with a game where its Donald Trump
+ against an Alien. My game is basiclly like the really old game called Galga. In this game, you have to play with 2 players. As you know one player is trump and one player is the Alien.
+ The ALien uses the keys a (left) and d (right) to move and to shoot w. Donal Trump uses the key left and right to move and the key down to shoot. My game will be using makey makw]
+ ey.
  */
 
 int time;
@@ -15,9 +18,7 @@ Player1 trump;
 Laser laser;
 Money money;
 
-Explosion explosionT;
-Explosion explosionS;
-
+Explosion explosion;
 
 ArrayList<Laser> lasers;
 ArrayList<Money> moneys;
@@ -96,19 +97,24 @@ void draw()
 
   if (trump._lives < 1)
   {
-    explosionT = new Explosion(trump._x, trump._y);
-
-    explosionT.Draw();
+    if (_gameovertrump == false)
+    {
+      explosion = new Explosion(trump._x, trump._y);
+    }
+    explosion.Draw();
 
     _gameovertrump = true;
   }
 
   if (spaceship._lives < 1)
   {
+    if (_gameoverspaceship == false)
+    {
+      explosion = new Explosion(spaceship._x, spaceship._y);
+    }
     _gameoverspaceship = true;
-    explosionS = new Explosion(spaceship._x, spaceship._y);
 
-    explosionS.Draw();
+    explosion.Draw();
   }
 }
 
@@ -147,7 +153,7 @@ void keyPressed()
     }
     if (_spaceshipfire == true)
     {
-      if (key == 's')
+      if (key == 'w')
       {
         Laser temp = new Laser(laserImg, spaceship._x, spaceship._y);
         lasers.add(temp);
@@ -171,10 +177,12 @@ void keyReleased()
       _right = false;
     }
   }
+
   if (key == 'a')
   {
     _a = false;
   }
+
   if (key == 'd')
   {
     _d = false;

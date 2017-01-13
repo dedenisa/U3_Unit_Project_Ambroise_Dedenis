@@ -29,7 +29,7 @@ class Explosion
       {
         fill(colors[(int)random(17)]);
         ellipse(ellipseX[i], ellipseY[i], 20, 20);
-        ellipseX[i] = ellipseX[i] + (int) random(1, 1);
+        ellipseX[i] = ellipseX[i] + (int) random(0, 0);
         ellipseY[i] = ellipseY[i] + (int) random(-20, 0);
         noStroke();
       }
@@ -40,7 +40,7 @@ class Explosion
       {
         fill(colors[(int)random(17)]);
         ellipse(ellipseX[i], ellipseY[i], 20, 20);
-        ellipseX[i] = ellipseX[i] + (int) random(1, 1);
+        ellipseX[i] = ellipseX[i] + (int) random(0, 0);
         ellipseY[i] = ellipseY[i] + (int) random(0, 20);
         noStroke();
       }

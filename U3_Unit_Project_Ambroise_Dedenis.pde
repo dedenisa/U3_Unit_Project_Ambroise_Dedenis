@@ -6,7 +6,9 @@ I was inspired to make this project due to the election of Donald Trump. So I wa
  */
 
 int time;
-int wait = 1000;
+int wait = 500;
+int trumpAmmo = 50;
+int spaceshipAmmo = 50;
 
 PImage trumpImg;
 PImage spaceshipImg;
@@ -87,12 +89,14 @@ void draw()
   {
     textSize(20);
     text("Trump lives =" + trump._lives, 100, 100);
+    text("Spaceship Ammo =" + trumpAmmo, 100, 125);
   }
 
   if (_gameoverspaceship == false)
   {
     textSize(20);
     text("Spaceship lives =" + spaceship._lives, width - 250, height - 125);
+    text("Spaceship Ammo =" + spaceshipAmmo, width - 250, height - 100);
   }
 
   if (trump._lives < 1)
@@ -134,12 +138,13 @@ void keyPressed()
       }
       if (_trumpfire == true)
       {
-        if (keyCode == DOWN)
+        if (keyCode == DOWN && trumpAmmo > 0)
         {
           Money temp = new Money(moneyImg, trump._x, trump._y);
           moneys.add(temp);
           _shootdown = true;
           _trumpfire = false;
+          trumpAmmo -= 1;
         }
       }
     }
@@ -153,12 +158,13 @@ void keyPressed()
     }
     if (_spaceshipfire == true)
     {
-      if (key == 'w')
+      if (key == 'w' && spaceshipAmmo > 0)
       {
         Laser temp = new Laser(laserImg, spaceship._x, spaceship._y);
         lasers.add(temp);
         _shootup = true;
         _spaceshipfire = false;
+        spaceshipAmmo -= 1;
       }
     }
   }

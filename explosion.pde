@@ -2,8 +2,7 @@ class Explosion
 {
   float _x;
   float _y;
-  color[] colors = {color(#FA080C), color(#FA9D08), color(#F54A0C), color(#FA0D64), color(#FCF505), color(#FC7D05), color(#2D1EE3), color(#24AA2E), 
-    color(#12B1CB), color(#5D0D0D), color(#9226DB), color(#F205FF), color(#05DCFF), color(#84AF27), color(#FF911A), color(#521AFF), color(#FF2403)};
+  color[] colors = {color(255, 0, 4), color(225, 129, 3), color(144, 83, 22), color(152, 8, 27), color(254, 255, 0), color(188, 113, 38)};
   int [] ellipseX = new int [1000];
   int [] ellipseY = new int [1000];
 
@@ -27,7 +26,7 @@ class Explosion
     {
       for (int i = 0; i < 1000; i++)                       
       {
-        fill(colors[(int)random(17)]);
+        fill(colors[(int)random(6)]);
         ellipse(ellipseX[i], ellipseY[i], 20, 20);
         ellipseX[i] = ellipseX[i] + (int) random(0, 0);
         ellipseY[i] = ellipseY[i] + (int) random(-20, 0);
@@ -38,7 +37,7 @@ class Explosion
     {
       for (int i = 0; i < 1000; i++)                       
       {
-        fill(colors[(int)random(17)]);
+        fill(colors[(int)random(6)]);
         ellipse(ellipseX[i], ellipseY[i], 20, 20);
         ellipseX[i] = ellipseX[i] + (int) random(0, 0);
         ellipseY[i] = ellipseY[i] + (int) random(0, 20);
